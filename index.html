@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>欢迎</title>
+    <style>
+      :root {
+        --bg: #0f1218;
+        --surface: #181c25;
+        --text: #e8eaef;
+        --muted: #8b93a7;
+        --accent: #6ee7b7;
+        --accent-dim: #34d39933;
+        --radius: 14px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: system-ui, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .glow {
+        position: fixed;
+        inset: -40% -20% auto;
+        height: 70vh;
+        background: radial-gradient(
+          ellipse 60% 50% at 50% 0%,
+          var(--accent-dim),
+          transparent 70%
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: clamp(2rem, 6vw, 4rem) 1.5rem 3rem;
+      }
+
+      header {
+        margin-bottom: 3rem;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        background: var(--surface);
+        border: 1px solid #2a3142;
+        font-size: 0.75rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 10px var(--accent);
+      }
+
+      h1 {
+        margin: 1.25rem 0 0.75rem;
+        font-family: Georgia, "Times New Roman", "Songti SC", serif;
+        font-weight: 500;
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+
+      h1 em {
+        font-style: italic;
+        color: var(--accent);
+      }
+
+      .lead {
+        margin: 0;
+        font-size: 1.125rem;
+        color: var(--muted);
+        max-width: 36ch;
+      }
+
+      .card {
+        margin-top: 2.5rem;
+        padding: 1.5rem 1.5rem 1.25rem;
+        background: var(--surface);
+        border-radius: var(--radius);
+        border: 1px solid #252b38;
+      }
+
+      .card h2 {
+        margin: 0 0 0.75rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+      }
+
+      .card ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        color: var(--text);
+      }
+
+      .card li {
+        margin-bottom: 0.5rem;
+      }
+
+      .card li:last-child {
+        margin-bottom: 0;
+      }
+
+      .actions {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.65rem 1.25rem;
+        border-radius: 10px;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .btn:active {
+        transform: scale(0.98);
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #042f2e;
+        box-shadow: 0 4px 24px #34d39944;
+      }
+
+      .btn-primary:hover {
+        box-shadow: 0 6px 32px #34d39966;
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid #3d4659;
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--muted);
+        background: #ffffff08;
+      }
+
+      .btn-genshin {
+        background: linear-gradient(135deg, #c9a2271a, #6b4f1a1a);
+        color: #f5ecd4;
+        border: 1px solid #c9a22755;
+      }
+
+      .btn-genshin:hover {
+        border-color: #e6c86a;
+        background: linear-gradient(135deg, #c9a2272a, #6b4f1a2a);
+      }
+
+      footer {
+        margin-top: 4rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #252b38;
+        font-size: 0.8125rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow" aria-hidden="true"></div>
+    <main>
+      <header>
+        <span class="badge">本地页面</span>
+        <h1>你好，<em>网页</em>已就绪</h1>
+        <p class="lead">
+          这是一个放在 <code style="color: var(--accent)">web</code> 文件夹里的简单首页，双击或在浏览器中打开即可预览。
+        </p>
+      </header>
+
+      <section class="card" aria-labelledby="tips-heading">
+        <h2 id="tips-heading">接下来可以</h2>
+        <ul>
+          <li>把更多 <strong>HTML / CSS / JS</strong> 文件放在同一目录下并互相链接。</li>
+          <li>用 VS Code 的 Live Server 等扩展做热刷新开发。</li>
+          <li>需要部署时，把整个文件夹上传到任意静态托管服务即可。</li>
+        </ul>
+      </section>
+
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="helloBtn">
+          点一下打个招呼
+        </button>
+        <a
+          class="btn btn-genshin"
+          href="https://ys.mihoyo.com/main/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          原神 · 国服下载
+        </a>
+        <a class="btn btn-ghost" href="https://developer.mozilla.org/zh-CN/docs/Learn_web_development">
+          MDN 学习资料
+        </a>
+      </div>
+
+      <footer>
+        <span id="year"></span> · 纯静态页面，无构建步骤。
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("helloBtn").addEventListener("click", function () {
+        alert("你好！祝开发顺利。");
+      });
+    </script>
+  </body>
+</html>
